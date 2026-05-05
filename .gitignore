@@ -1,0 +1,9 @@
+# Git Ignore
+
+# Environment / Secrets
+.claude/.env
+
+# CafeKit / Ecosystem
+specs/_shared/
+plans/
+!plans/templates/

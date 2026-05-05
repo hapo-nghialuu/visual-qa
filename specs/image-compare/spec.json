@@ -1,0 +1,174 @@
+{
+  "feature_name": "image-compare",
+  "created_at": "2026-05-04T16:45:00+07:00",
+  "updated_at": "2026-05-05T11:00:00+07:00",
+  "language": "vi",
+  "status": "in_progress",
+  "phase": "tasks",
+  "current_phase": "tasks",
+  "priority": "P2",
+  "effort": "M",
+  "tags": ["image-comparison", "auth", "ui"],
+  "approvals": {
+    "requirements": { "generated": true, "approved": true },
+    "design": { "generated": true, "approved": true },
+    "tasks": { "generated": true, "approved": true }
+  },
+  "scope_lock": {
+    "source": "So sánh ảnh gốc vs ảnh chụp, phân tích相似/khác biệt, Google auth, project-based logs, shadcn UI với custom color palette",
+    "in_scope": [
+      "Image upload (original + captured)",
+      "SSIM structural similarity comparison (client-side)",
+      "LLM Vision deep analysis (user-triggered, server-side)",
+      "Similarity score + classification display",
+      "Visual diff heatmap (side-by-side + overlay)",
+      "Google OAuth login",
+      "Comparison log storage (user, timestamp, images, ssimScore, llmReport, project)",
+      "Project CRUD và log categorization",
+      "shadcn UI với custom color palette (Black 6C, Sherwood Green, Green Pea, Perano, Primrose)",
+      "Responsive design",
+      "AI model settings page (provider: Claude/OpenAI/Google AI Studio/Custom, API key, model, custom prompt)"
+    ],
+    "out_of_scope": [
+      "Unit tests / integration tests / e2e tests",
+      "CI/CD pipeline",
+      "Perceptual hash algorithms",
+      "Image editing / annotation",
+      "Real-time collaboration",
+      "Export reports (PDF/CSV)",
+      "Admin dashboard",
+      "Rate limiting / abuse prevention"
+    ],
+    "expansion_policy": "requires-user-approval"
+  },
+  "dependencies": {
+    "blockedBy": [],
+    "blocks": []
+  },
+  "task_files": [
+    "tasks/task-R0-01-project-foundation.md",
+    "tasks/task-R1-01-image-upload.md",
+    "tasks/task-R1-02-image-comparison.md",
+    "tasks/task-R2-01-google-auth-flow.md",
+    "tasks/task-R3-01-comparison-logging.md",
+    "tasks/task-R4-01-project-management.md",
+    "tasks/task-R5-01-ui-polish.md",
+    "tasks/task-R6-01-ai-settings.md"
+  ],
+  "task_registry": {
+    "tasks/task-R0-01-project-foundation.md": {
+      "id": "R0-01",
+      "title": "Project Foundation",
+      "status": "pending",
+      "dependencies": [],
+      "blocker": null,
+      "started_at": null,
+      "completed_at": null,
+      "last_updated_at": null
+    },
+    "tasks/task-R1-01-image-upload.md": {
+      "id": "R1-01",
+      "title": "Image Upload",
+      "status": "pending",
+      "dependencies": ["tasks/task-R0-01-project-foundation.md"],
+      "blocker": null,
+      "started_at": null,
+      "completed_at": null,
+      "last_updated_at": null
+    },
+    "tasks/task-R1-02-image-comparison.md": {
+      "id": "R1-02",
+      "title": "Image Comparison Engine (SSIM + LLM Vision)",
+      "status": "pending",
+      "dependencies": ["tasks/task-R1-01-image-upload.md", "tasks/task-R6-01-ai-settings.md"],
+      "blocker": null,
+      "started_at": null,
+      "completed_at": null,
+      "last_updated_at": null
+    },
+    "tasks/task-R2-01-google-auth-flow.md": {
+      "id": "R2-01",
+      "title": "Google Auth Flow",
+      "status": "pending",
+      "dependencies": ["tasks/task-R0-01-project-foundation.md"],
+      "blocker": null,
+      "started_at": null,
+      "completed_at": null,
+      "last_updated_at": null
+    },
+    "tasks/task-R3-01-comparison-logging.md": {
+      "id": "R3-01",
+      "title": "Comparison Logging",
+      "status": "pending",
+      "dependencies": ["tasks/task-R1-02-image-comparison.md", "tasks/task-R2-01-google-auth-flow.md"],
+      "blocker": null,
+      "started_at": null,
+      "completed_at": null,
+      "last_updated_at": null
+    },
+    "tasks/task-R4-01-project-management.md": {
+      "id": "R4-01",
+      "title": "Project Management",
+      "status": "pending",
+      "dependencies": ["tasks/task-R2-01-google-auth-flow.md"],
+      "blocker": null,
+      "started_at": null,
+      "completed_at": null,
+      "last_updated_at": null
+    },
+    "tasks/task-R5-01-ui-polish.md": {
+      "id": "R5-01",
+      "title": "UI Polish & Responsive",
+      "status": "pending",
+      "dependencies": ["tasks/task-R0-01-project-foundation.md"],
+      "blocker": null,
+      "started_at": null,
+      "completed_at": null,
+      "last_updated_at": null
+    },
+    "tasks/task-R6-01-ai-settings.md": {
+      "id": "R6-01",
+      "title": "AI Model Settings",
+      "status": "pending",
+      "dependencies": ["tasks/task-R2-01-google-auth-flow.md"],
+      "blocker": null,
+      "started_at": null,
+      "completed_at": null,
+      "last_updated_at": null
+    }
+  },
+  "blocker": null,
+  "progress": {
+    "init": "done",
+    "requirements": "done",
+    "research": "done",
+    "design": "done",
+    "tasks": "done",
+    "code": "pending",
+    "test": "skipped",
+    "review": "done"
+  },
+  "timestamps": {
+    "init": "2026-05-04T16:45:00+07:00",
+    "requirements_done": "2026-05-04T16:46:00+07:00",
+    "research_done": "2026-05-04T16:46:30+07:00",
+    "design_done": "2026-05-04T16:47:00+07:00",
+    "tasks_done": "2026-05-04T16:48:00+07:00",
+    "code_done": null,
+    "test_done": null,
+    "review_done": "2026-05-05T12:00:00+07:00",
+    "validation_done": "2026-05-05T12:00:00+07:00"
+  },
+  "design_context": {
+    "discovery_mode": "light",
+    "discovery_reason": "Greenfield project với well-known patterns (Next.js, OAuth, image comparison). Không cần deep research.",
+    "validation_recommended": true
+  },
+  "validation": {
+    "status": "completed",
+    "session_count": 2,
+    "questions_asked": 2,
+    "last_validated_at": "2026-05-05T12:00:00+07:00"
+  },
+  "ready_for_implementation": true
+}
