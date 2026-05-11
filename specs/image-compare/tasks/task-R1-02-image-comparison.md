@@ -94,6 +94,31 @@ Implement 2-tier image comparison: SSIM structural similarity (client-side) + LL
 | `components/llm-analysis.tsx` | Create | LLM findings checklist |
 | `components/image-compare.tsx` | Create | Side-by-side + overlay + tabs |
 | `app/page.tsx` | Modify | Wire up comparison flow |
+| `lib/screenshot-url-policy.ts` | Create | SSRF-safe URL parsing for screenshot API |
+| `lib/url-page-screenshot.ts` | Create | Playwright capture pipeline |
+| `app/api/screenshot/route.ts` | Create | Authenticated POST → PNG in `public/uploads` |
+| `lib/screenshot-url-policy.test.ts` | Create | Vitest for URL policy |
+| `components/image-upload.tsx` | Modify | Tabs Upload / Page URL + `urlOnly` (Captured) |
+| `lib/figma-node-parse.ts` | Create | Parse Figma URL / node id |
+| `lib/figma-node-parse.test.ts` | Create | Vitest |
+| `app/api/figma-image/route.ts` | Create | Figma Images API → PNG |
+| `components/figma-original-source.tsx` | Create | Original (Figma) UI |
+
+## Original = Figma node (PNG export)
+
+- [ ] 1. Env: `FIGMA_ACCESS_TOKEN` (Figma → Settings → Personal access tokens).
+- [ ] 2. Parser: `lib/figma-node-parse.ts` — đọc `file` + `node-id` từ link `figma.com/design|file|proto|community/file/...`, hoặc nhập tay file key + node id (`1:2` / `1-2`).
+- [ ] 3. API: `POST /api/figma-image` — `GET /v1/images/{file_key}?ids=...&format=png` → tải URL render → lưu `public/uploads/*.png` → `{ url, fileKey, nodeId }`.
+- [ ] 4. UI: `components/figma-original-source.tsx` — slot Original trên trang compare.
+
+## Captured = URL web → full-page screenshot (Playwright)
+
+- [ ] 1. Dependency: `playwright` (runtime). Sau `npm install` chạy `npx playwright install chromium`.
+- [ ] 2. Policy URL: `lib/screenshot-url-policy.ts` — chỉ `http`/`https`, không credential trong URL; chặn localhost/private ở **production** trừ khi `ALLOW_SCREENSHOT_INTERNAL=true`.
+- [ ] 3. Capture pipeline: `lib/url-page-screenshot.ts` — Chromium headless → `newContext({ httpCredentials? })` → `goto` (domcontentloaded) → tắt animation → scroll thích ứng (chiều cao ổn định, tối đa 5 vòng) → `document.fonts.ready` → chờ ảnh tối đa 4s (không dùng `networkidle`) → settle ngắn → `fullPage` PNG.
+- [ ] 4. API: `POST /api/screenshot` `{ "url": "https://...", "basicAuthUsername"?: "", "basicAuthPassword"?: "" }` — yêu cầu đăng nhập; optional HTTP Basic cho site staging; lưu `public/uploads/<uuid>.png`, trả `{ url: "/uploads/..." }`.
+- [ ] 5. UI: `components/image-upload.tsx` — prop `urlOnly` cho slot Captured (chỉ Page URL + Basic auth + Capture). Slot khác vẫn Upload \| URL.
+- [ ] 6. Test: `lib/screenshot-url-policy.test.ts`, `lib/figma-node-parse.test.ts` (Vitest).
 
 ## Completion Criteria
 - [ ] Upload 2 ảnh → click Compare → thấy SSIM score + heatmap trong ~2s

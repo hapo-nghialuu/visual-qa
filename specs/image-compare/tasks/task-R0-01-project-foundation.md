@@ -5,29 +5,29 @@ Khởi tạo Next.js project với Prisma, NextAuth, shadcn/ui, và cấu hình 
 
 ## Implementation Steps
 
-- [ ] 1. Init Next.js project
+- [x] 1. Init Next.js project
   - `npx create-next-app@latest ui-compare --typescript --tailwind --app --src-dir=false`
   - Verify dev server chạy được
 
-- [ ] 2. Setup Prisma + SQLite
+- [x] 2. Setup Prisma + SQLite
   - `npm install prisma @prisma/client`
   - `npx prisma init --datasource-provider sqlite`
   - Tạo schema.prisma với models: User, Project, Comparison
   - `npx prisma db push`
   - Tạo `lib/db.ts` singleton PrismaClient
 
-- [ ] 3. Setup NextAuth.js
+- [x] 3. Setup NextAuth.js
   - `npm install next-auth @auth/prisma-adapter`
   - Tạo `app/api/auth/[...nextauth]/route.ts`
   - Tạo `lib/auth.ts` với GoogleProvider config
   - Tạo `app/providers.tsx` với SessionProvider
   - Wrap layout.tsx với providers
 
-- [ ] 4. Setup shadcn/ui
+- [x] 4. Setup shadcn/ui
   - `npx shadcn@latest init`
   - Install components: button, card, dialog, dropdown-menu, input, select, avatar, badge, label
 
-- [ ] 5. Configure Tailwind custom colors
+- [x] 5. Configure Tailwind custom colors
   - Update `tailwind.config.ts` với color palette:
     - primary: #006242 (Green Pea)
     - secondary: #114734 (Sherwood Green)
@@ -52,5 +52,5 @@ Khởi tạo Next.js project với Prisma, NextAuth, shadcn/ui, và cấu hình 
 ## Completion Criteria
 - [ ] `npm run dev` chạy thành công
 - [ ] `npx prisma studio` mở được, thấy 3 tables
-- [ ] shadcn components import được
-- [ ] Tailwind custom colors hoạt động (test bằng div có bg-primary)
+- [x] shadcn components import được
+- [x] Tailwind custom colors hoạt động (test bằng div có bg-primary)

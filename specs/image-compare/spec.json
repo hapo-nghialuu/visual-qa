@@ -1,7 +1,7 @@
 {
   "feature_name": "image-compare",
   "created_at": "2026-05-04T16:45:00+07:00",
-  "updated_at": "2026-05-05T11:00:00+07:00",
+  "updated_at": "2026-05-11T12:00:00+07:00",
   "language": "vi",
   "status": "in_progress",
   "phase": "tasks",
@@ -49,6 +49,7 @@
     "tasks/task-R0-01-project-foundation.md",
     "tasks/task-R1-01-image-upload.md",
     "tasks/task-R1-02-image-comparison.md",
+    "tasks/task-R1-03-compare-dom.md",
     "tasks/task-R2-01-google-auth-flow.md",
     "tasks/task-R3-01-comparison-logging.md",
     "tasks/task-R4-01-project-management.md",
@@ -59,12 +60,12 @@
     "tasks/task-R0-01-project-foundation.md": {
       "id": "R0-01",
       "title": "Project Foundation",
-      "status": "pending",
+      "status": "completed",
       "dependencies": [],
       "blocker": null,
-      "started_at": null,
-      "completed_at": null,
-      "last_updated_at": null
+      "started_at": "2026-05-08T14:41:54+07:00",
+      "completed_at": "2026-05-08T14:41:54+07:00",
+      "last_updated_at": "2026-05-08T14:41:54+07:00"
     },
     "tasks/task-R1-01-image-upload.md": {
       "id": "R1-01",
@@ -131,6 +132,16 @@
       "title": "AI Model Settings",
       "status": "pending",
       "dependencies": ["tasks/task-R2-01-google-auth-flow.md"],
+      "blocker": null,
+      "started_at": null,
+      "completed_at": null,
+      "last_updated_at": null
+    },
+    "tasks/task-R1-03-compare-dom.md": {
+      "id": "R1-03",
+      "title": "Compare DOM (Figma + DOM + pixel + AI context)",
+      "status": "pending",
+      "dependencies": ["tasks/task-R1-02-image-comparison.md", "tasks/task-R2-01-google-auth-flow.md"],
       "blocker": null,
       "started_at": null,
       "completed_at": null,
